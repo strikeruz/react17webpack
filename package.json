@@ -1,5 +1,5 @@
 {
-	"name": "React 17 Webpack",
+	"name": "src",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
@@ -8,28 +8,14 @@
 		"build": "cross-env NODE_ENV=production webpack --mode production",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"keywords": [
-		"react",
-		"reactjs",
-		"boilerplate",
-		"hot",
-		"reload",
-		"hmr",
-		"live",
-		"edit",
-		"webpack",
-		"babel",
-		"react-transform",
-		"react 17 webpack",
-		"hot reload webpack"
-		"react 17 hot reload"
-	],
-	"author": "Strikeruz",
+	"keywords": [],
+	"author": "",
 	"license": "ISC",
 	"browserslist": "> 0.25%, not dead",
 	"dependencies": {
+		"@babel/plugin-transform-runtime": "^7.12.15",
 		"react": "^17.0.1",
-		"react-dom": "^17.0.1"
+		"react-dom": "^17.0.1",
 	},
 	"devDependencies": {
 		"@babel/core": "^7.11.6",

@@ -4,26 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const isProd = process.env.NODE_ENV === 'production'
-const isDev = !isProd
-
-const jsLoaders = () => {
-  const loaders = [
-    {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env']
-      }
-    }
-  ]
-
-  if (isDev) {
-    // loaders.push('eslint-loader')
-  }
-
-  return loaders
-}
-
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
@@ -51,7 +31,13 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: [{
+            loader: 'babel-loader',
+            options: {
+                cacheDirectory: true,
+                plugins: ['@babel/plugin-transform-runtime']
+            }
+        }]
       },
       {
         test: /\.s[ac]ss$/i,
@@ -92,7 +78,7 @@ module.exports = {
     new ReactRefreshPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-          template: "./src/index.html"
+          template: "./public/index.html"
     }),
     new MiniCssExtractPlugin({
       filename: 'bundle.css'
